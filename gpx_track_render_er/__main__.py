@@ -1,12 +1,13 @@
 import datetime
 import gpxpy
 import gpxpy.gpx
+import urllib.parse
 from geopy import distance
 
 
 def main():
     finish_time = datetime.datetime(2016, 4, 12, 1, 54, 41)
-    finish_location = (32.62244, -116.51799)
+    finish_location = (33.27477, -116.64574)
     shortest_dist = distance.distance(meters=100000)
 
     gpx_file = open("CA_Sec_A_tracks.gpx", "r")
@@ -21,11 +22,6 @@ def main():
                     finish_location, (point.latitude, point.longitude)
                 )
 
-                print(
-                    "Point at ({0},{1}) -> {2}".format(
-                        point.latitude, point.longitude, point.elevation
-                    )
-                )
                 print("Distance from finish: {0}".format(this_distance))
 
                 if this_distance < shortest_dist:
@@ -33,12 +29,21 @@ def main():
                     nearest_location = point
 
     print(
-        "Closest point is ({0},{1}) -> {2} ".format(
+        "Closest point is ({0},{1}) -> {2} metres away ".format(
             nearest_location.latitude,
             nearest_location.longitude,
-            nearest_location.elevation,
+            round(shortest_dist.m, 2),
         )
     )
+    gmaps_params = urllib.parse.urlencode(
+        {
+            "api": 1,
+            "basemap": "terrain",
+            "origin": finish_location,
+            "destination": (nearest_location.latitude, nearest_location.longitude),
+        }
+    )
+    print("View at : https://www.google.com/maps/dir/?{0}".format(gmaps_params))
 
 
 if __name__ == "__main__":
