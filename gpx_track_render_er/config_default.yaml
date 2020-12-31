@@ -5,9 +5,14 @@ start:
   time:
     timestamp: "2020-12-29T13:34:38+00:00"
     accuracy: "PT2H"
-  location: ~
+  location:
+    lat: ~
+    lon: ~
 finish:
   time:
     timestamp: "2020-12-29T13:34:38+00:00"
     accuracy: "PT1S"
-  location: "+33.27477-116.64574"
+  location:
+    lat: 33.27477
+    lon: -116.64574
+timezone: "America/Los_Angeles"
