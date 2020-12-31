@@ -1,0 +1,13 @@
+gpx_file:
+  filename: "/home/ieuan/repos/gpx-track-render-er/CA_Sec_A_tracks.gpx"
+  track_name: "CA Sec A"
+start:
+  time:
+    timestamp: "2020-12-29T13:34:38+00:00"
+    accuracy: "PT2H"
+  location: ~
+finish:
+  time:
+    timestamp: "2020-12-29T13:34:38+00:00"
+    accuracy: "PT1S"
+  location: "+33.27477-116.64574"
