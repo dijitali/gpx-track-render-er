@@ -1,16 +1,16 @@
 gpx_file:
-  filename: "/home/ieuan/repos/gpx-track-render-er/CA_Sec_A_tracks.gpx"
+  filename: "/home/ieuan/repos/gpx-track-render-er/data/halfmile_pct/CA_Sec_A_tracks.gpx"
   track_name: "CA Sec A"
 start:
   time:
-    timestamp: "2020-12-29T13:34:38+00:00"
+    timestamp: "2016-04-17T15:00:00Z"
     accuracy: "PT2H"
   location:
     lat: ~
     lon: ~
 finish:
   time:
-    timestamp: "2020-12-29T13:34:38+00:00"
+    timestamp: "2016-04-18T04:29:23Z"
     accuracy: "PT1S"
   location:
     lat: 33.27477
