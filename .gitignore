@@ -137,3 +137,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 .vscode/settings.json
+
+# Halfmile Media copyright files
+/data/halfmile_pct/
