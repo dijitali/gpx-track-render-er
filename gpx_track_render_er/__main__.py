@@ -5,18 +5,25 @@ from geopy import distance
 import gpxpy
 import gpxpy.gpx
 import logging
+import mailbox
 import pytz
 import srtm
 import isodate
 import urllib.parse
 
 
-def guess_timestamp_with_acc(timestamp: str, accuracy: str = "PT0H0M0S") -> dt:
+def guess_timestamp_with_acc(timestamp: dt, accuracy: str = "PT0H0M0S") -> dt:
+    """Generate a random timestamp with the given accuracy
 
+    :param timestamp:
+    :param accuracy:
+    :return:
+    """
     utc = pytz.utc
 
     dt_format = "%Y-%m-%dT%H:%M:%S%z"  # 2020-12-29T13:34:38+00:00
     acc_span = isodate.parse_duration(accuracy)
+
     start_time = dt.strptime(timestamp, dt_format) - acc_span
     end_time = dt.strptime(timestamp, dt_format) + acc_span
 
@@ -30,6 +37,24 @@ def main():
 
     config = confuse.Configuration("gpx_track_render_er", __name__)
     config.set_file("config_default.yaml")
+
+    message_locations = []
+    for message in mailbox.mbox(config["mbox_data"]["filename"].as_filename()):
+        if {"X-SPOT-Latitude", "X-SPOT-Longitude", "X-SPOT-Time", "X-SPOT-Type"} <= set(
+            message.keys()
+        ) and message["x-spot-type"] == "Check-in/OK":
+
+            message_locations.append(
+                gpxpy.gpx.GPXTrackPoint(
+                    latitude=message["x-spot-latitude"],
+                    longitude=message["x-spot-longitude"],
+                    elevation=None,
+                )
+            )
+            logging.info("Found message")
+        else:
+
+            logging.debug("Ignoring message that does not match filter")
 
     start_time = guess_timestamp_with_acc(
         config["start"]["time"]["timestamp"].get(str),
@@ -55,14 +80,14 @@ def main():
         elevation=finish_elevation,
     )
 
-    gpx = gpxpy.parse(open(config["gpx_file"]["filename"].as_filename(), "r"))
+    gpx = gpxpy.parse(open(config["gpx_data"]["filename"].as_filename(), "r"))
     track = next(
-        (x for x in gpx.tracks if x.name == config["gpx_file"]["track_name"].get(str)),
+        (x for x in gpx.tracks if x.name == config["gpx_data"]["track_name"].get(str)),
         None,
     )
 
-    logging.info("Processing track name {0}".format(track.name))
-    track.segments[0].get_nearest_location(finish_location)
+    logging.info(f"Processing track name {track.name}")
+    nearest_location = track.segments[0].get_nearest_location(finish_location)
 
     nearest_location = track.segments[0].points[0]
     shortest_dist = None
@@ -80,17 +105,14 @@ def main():
                 nearest_location = point
                 gpx_indices = (segment_index, point_index)
 
-    logging.info("Estimated start at %s", start_time)
-    logging.info("Finish at %s", finish_time)
+    logging.info(f"Estimated start at {start_time}")
+    logging.info(f"Finish at {finish_time}")
     logging.info(
-        "Closest GPX track point is (%s,%s)",
-        nearest_location.latitude,
-        nearest_location.longitude,
+        f"Closest GPX track point is ({nearest_location.latitude},{nearest_location.longitude})"
     )
     logging.info(
-        "%.2f metres away from the finish location and elevation Δ is +%.2f " "metres",
-        shortest_dist.m,
-        nearest_location.elevation - finish_location.elevation,
+        f"Closed point along route is {shortest_dist.meters:.2f} metres away from the finish location and elevation Δ "
+        f"is {(nearest_location.elevation - finish_location.elevation):+.2f} metres from the route"
     )
 
     gmaps_params = urllib.parse.urlencode(
@@ -101,7 +123,7 @@ def main():
             "destination": (nearest_location.latitude, nearest_location.longitude),
         }
     )
-    print("View at : https://www.google.com/maps/dir/?{0}".format(gmaps_params))
+    print(f"View at : https://www.google.com/maps/dir/?{gmaps_params}")
 
     gpx_output = gpxpy.gpx.GPX()
     gpx_track = gpxpy.gpx.GPXTrack()
@@ -112,7 +134,6 @@ def main():
     gpx_output.fill_time_data_with_regular_intervals(
         start_time=start_time, end_time=finish_time
     )
-    print("GPX:", gpx_output.to_xml())
 
     with open("/home/ieuan/repos/gpx-track-render-er/data/output.gpx", "w") as f:
         f.write(gpx_output.to_xml())

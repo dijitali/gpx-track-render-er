@@ -164,6 +164,14 @@ python-versions = "*"
 six = "*"
 
 [[package]]
+name = "mailbox"
+version = "0.4"
+description = "Python IMAP for Humans"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "more-itertools"
 version = "8.6.0"
 description = "More routines for operating on iterables, beyond itertools"
@@ -375,7 +383,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "3d9a9a22b23338230d430238c667c699dfc1a92e8929521eec330382ba90312c"
+content-hash = "49a77863dc816358ce1a76c6b9665af48baa0416b9cd08fe7abf0c995dd6ed91"
 
 [metadata.files]
 appdirs = [
@@ -435,6 +443,9 @@ idna = [
 isodate = [
     {file = "isodate-0.6.0-py2.py3-none-any.whl", hash = "sha256:aa4d33c06640f5352aca96e4b81afd8ab3b47337cc12089822d6f322ac772c81"},
     {file = "isodate-0.6.0.tar.gz", hash = "sha256:2e364a3d5759479cdb2d37cce6b9376ea504db2ff90252a2e5b7cc89cc9ff2d8"},
+]
+mailbox = [
+    {file = "mailbox-0.4.tar.gz", hash = "sha256:f9bf9679932f7a245902d33924dff11485bcf49cac0526f1a5eb9550bc510d73"},
 ]
 more-itertools = [
     {file = "more-itertools-8.6.0.tar.gz", hash = "sha256:b3a9005928e5bed54076e6e549c792b306fddfe72b2d1d22dd63d42d5d3899cf"},

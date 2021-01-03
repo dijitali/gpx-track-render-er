@@ -1,4 +1,8 @@
-gpx_file:
+mbox_data:
+  filename: "/home/ieuan/repos/gpx-track-render-er/data/mbox/PCT GPS Check-ins.mbox"
+  from: "noreply@findmespot.com"
+  subject: "Check-in/OK message from SPOT Ieuan's GPS"
+gpx_data:
   filename: "/home/ieuan/repos/gpx-track-render-er/data/halfmile_pct/CA_Sec_A_tracks.gpx"
   track_name: "CA Sec A"
 start:
