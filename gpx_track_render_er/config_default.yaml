@@ -20,3 +20,4 @@ finish:
     lat: 33.27477
     lon: -116.64574
 timezone: "America/Los_Angeles"
+max_distance_from_gpx: 1000
