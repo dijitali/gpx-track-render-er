@@ -98,7 +98,7 @@ test = ["pathlib"]
 
 [[package]]
 name = "faker"
-version = "8.6.0"
+version = "8.8.2"
 description = "Faker is a Python package that generates fake data for you."
 category = "main"
 optional = false
@@ -374,7 +374,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "e97c795bb07f4a5448324006293279ace1316de3aff9b97106d1bfd2badbd16a"
+content-hash = "29c04a1edf8888cde97edde2b87a6706a7fccd3407615a4ad2a605a9d5a993b8"
 
 [metadata.files]
 appdirs = [
@@ -413,8 +413,8 @@ confuse = [
     {file = "confuse-1.4.0.tar.gz", hash = "sha256:92fc0451c6e2c2732ac363d0f59d7ea608abddbed062dda8e98e9a8c986ce464"},
 ]
 faker = [
-    {file = "Faker-8.6.0-py3-none-any.whl", hash = "sha256:8f2800605b55cbf92d30c1a9db2cc11d0bfb200732590f597603a7789a43f5f4"},
-    {file = "Faker-8.6.0.tar.gz", hash = "sha256:69febb4db797d2c463e5bd56263aa0068c99480ace3beeb6ba0e14bf82d46607"},
+    {file = "Faker-8.8.2-py3-none-any.whl", hash = "sha256:7ab021c70d6a83f639611d80763b995696a9e964fb9eff06935da6120ad95019"},
+    {file = "Faker-8.8.2.tar.gz", hash = "sha256:22534c3aa6d2ef9f38403a234dc9b71b5cb878fb765c72994be5dc7b4eaf0865"},
 ]
 geographiclib = [
     {file = "geographiclib-1.50-py3-none-any.whl", hash = "sha256:51cfa698e7183792bce27d8fb63ac8e83689cd8170a730bf35e1a5c5bf8849b9"},
