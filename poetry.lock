@@ -84,7 +84,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "confuse"
-version = "1.5.0"
+version = "1.6.0"
 description = "Painless YAML configuration."
 category = "main"
 optional = false
@@ -366,7 +366,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "2671beb63d909cbca1d47a2c1e3788761e5ef327b29328b3c6eab6a31cdc34ef"
+content-hash = "d62829c032d4845c0779bb37d1a425f25e7e56b687ffb8bd507295b4e757cde4"
 
 [metadata.files]
 appdirs = [
@@ -402,8 +402,8 @@ colorama = [
     {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
 ]
 confuse = [
-    {file = "confuse-1.5.0-py2.py3-none-any.whl", hash = "sha256:00685b37f6ae849f805b707cf7d1e8609be6c9d8fd4c45ef01c5e765d9cba5e3"},
-    {file = "confuse-1.5.0.tar.gz", hash = "sha256:92fbca1c70611120ea722372e0c071c0d342a75f796b4bde4bf0348ea49f022e"},
+    {file = "confuse-1.6.0-py2.py3-none-any.whl", hash = "sha256:82137fae8aab189901f16ed9155268e34ec8673f13db0ad331ab670528ceb999"},
+    {file = "confuse-1.6.0.tar.gz", hash = "sha256:d60104c0b2a708041ac27487fa6ee69bd37d910549659c7ba92f52cbe2ced4dc"},
 ]
 faker = [
     {file = "Faker-8.11.0-py3-none-any.whl", hash = "sha256:3e737576ff50cd98dfed643d6b3fd63194eca9df00e7f595960fe7da5220723d"},
