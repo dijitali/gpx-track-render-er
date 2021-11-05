@@ -138,7 +138,7 @@ timezone = ["pytz"]
 
 [[package]]
 name = "gpxpy"
-version = "1.4.2"
+version = "1.5.0"
 description = "GPX file parser and GPS track manipulation library"
 category = "main"
 optional = false
@@ -366,7 +366,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "2671beb63d909cbca1d47a2c1e3788761e5ef327b29328b3c6eab6a31cdc34ef"
+content-hash = "d435b3e2b630f499d43f631142de7f3d817a46b363da9354b7e271964b19c633"
 
 [metadata.files]
 appdirs = [
@@ -418,7 +418,7 @@ geopy = [
     {file = "geopy-2.2.0.tar.gz", hash = "sha256:58b7edf526b8c32e33126570b5f4fcdfaa29d4416506064777ae8d84cd103fdd"},
 ]
 gpxpy = [
-    {file = "gpxpy-1.4.2.tar.gz", hash = "sha256:0832041899cdfdc5a607291bbef3d73042e16ffcecc3f2cb9631b699db0bb53f"},
+    {file = "gpxpy-1.5.0.tar.gz", hash = "sha256:e6993a8945eae07a833cd304b88bbc6c3c132d63b2bf4a9b0a5d9097616b8708"},
 ]
 idna = [
     {file = "idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"},
