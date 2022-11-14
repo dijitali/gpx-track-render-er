@@ -7,7 +7,7 @@ authors = ["Ieuan Jenkins <hi@ieuan.net>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 gpxpy = "^1.4.2"
-geopy = "^2.2.0"
+geopy = "^2.3.0"
 Faker = "^8.11.0"
 pytz = "^2021.1"
 PyYAML = "^5.4.1"
